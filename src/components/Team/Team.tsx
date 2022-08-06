@@ -28,19 +28,21 @@ interface TeamProps {
 }
 
 const Team = (props: TeamProps) => {
-  const sortable = createSortable(props.id, props);
-
+  const sortable = createSortable(props.id, { id: props.id });
   const classes = [
     "col-md-12",
     "btn",
     "text-bold",
     "tabelleClass",
     "sortable",
-    { "opacity-25": sortable.isActiveDraggable },
     positionCSSClass(props.rank),
   ];
   return (
-    <div class={classNames(classes)} use:sortable>
+    <div
+      class={classNames(classes)}
+      classList={{ "opacity-25": sortable.isActiveDraggable }}
+      use:sortable
+    >
       {props.rank}.{props.name}
     </div>
   );

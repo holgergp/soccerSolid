@@ -15,27 +15,19 @@ export const recalculateSwappedPositions = (
   targetTeamId: string,
   currentPositions: TeamType[]
 ): TeamType[] => {
-  const clonedPositions = [...currentPositions];
+  const fromIndex = currentPositions.findIndex(
+    (team) => team.id === sourceTeamId
+  );
+  const toIndex = currentPositions.findIndex(
+    (team) => team.id === targetTeamId
+  );
 
-  const [sourceInfo, targetInfo] = [sourceTeamId, targetTeamId].map((id) => {
-    const index = findTeamIndex(id, clonedPositions);
-    const team = findTeam(id, clonedPositions);
-    if (!team || index < 0) {
-      throw Error("Team or index for id " + id + " not found");
-    }
-    return {
-      index,
-      team,
-    };
-  });
-
-  return currentPositions.map((pos, index) => {
-    if (index === targetInfo.index) {
-      return { ...sourceInfo.team };
-    } else if (index === sourceInfo.index) {
-      return { ...targetInfo.team };
-    } else return { ...pos };
-  });
+  if (fromIndex !== toIndex) {
+    const updatedItems = currentPositions.slice();
+    updatedItems.splice(toIndex, 0, ...updatedItems.splice(fromIndex, 1));
+    return updatedItems;
+  }
+  return currentPositions;
 };
 
 export const recalculatePositionsWithRenamedTeam = (

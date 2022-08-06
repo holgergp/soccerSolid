@@ -29,20 +29,26 @@ const LeagueTable = () => {
   const onDragEnd: DragEventHandler = (item) => {
     console.log("dragEnd", item);
 
-    swapPositions(item.draggable.data.id, item.droppable?.data.id);
+    swapPositions(item.draggable.id + "", item.droppable?.id + "");
   };
 
+  const onDragOver: DragEventHandler = (item) => {
+    console.log("onDragOver", item.droppable?.id);
+  };
   return (
     <DragDropProvider
       onDragStart={onDragStart}
       onDragEnd={onDragEnd}
+      onDragOver={onDragOver}
       collisionDetector={closestCenter}
     >
       <DragDropSensors />
       <SortableProvider ids={ids()}>
         <For each={positions()} fallback={<div>Loading...</div>}>
           {(item, index) => (
-            <Position position={{ ...item, rank: index() + 1 }} />
+            <Position
+              position={{ id: item.id, name: item.name, rank: index() + 1 }}
+            />
           )}
         </For>
       </SortableProvider>
