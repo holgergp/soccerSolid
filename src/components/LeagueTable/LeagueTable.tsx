@@ -25,16 +25,18 @@ const LeagueTable = () => {
   };
 
   return (
-    <DragDropProvider onDragEnd={onDragEnd} collisionDetector={closestCenter}>
-      <DragDropSensors />
-      <SortableProvider ids={ids()}>
-        <For each={positions()} fallback={<div>Loading...</div>}>
-          {(item, index) => (
-            <Position id={item.id} name={item.name} rank={index() + 1} />
-          )}
-        </For>
-      </SortableProvider>
-    </DragDropProvider>
+    <div class="grid gap-y-1 place-items-center">
+      <DragDropProvider onDragEnd={onDragEnd} collisionDetector={closestCenter}>
+        <DragDropSensors />
+        <SortableProvider ids={ids()}>
+          <For each={positions()} fallback={<div>Loading...</div>}>
+            {(item, index) => (
+              <Position id={item.id} name={item.name} rank={index() + 1} />
+            )}
+          </For>
+        </SortableProvider>
+      </DragDropProvider>
+    </div>
   );
 };
 export default LeagueTable;
