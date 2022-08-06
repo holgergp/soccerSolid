@@ -1,13 +1,15 @@
 import Team from "../Team/Team";
 
 export interface PositionProps {
-    position: {name: string
-        rank: number;}
-
-}
-const Position = ({position: p}: PositionProps) => {
-    return <div class="border-solid border-2"><Team name={p.name} rank={p.rank}></Team></div>
-
+  position: { name: string; rank: number; id: string };
 }
 
-export default Position
+const Position = ({ position: p }: PositionProps) => {
+  return (
+    <div class="border-solid border-2">
+      <Team name={p.name} rank={p.rank} id={p.id}></Team>
+    </div>
+  );
+};
+
+export default Position;
