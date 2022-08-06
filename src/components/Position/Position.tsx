@@ -1,10 +1,12 @@
 import Team from "../Team/Team";
 
 export interface PositionProps {
-  position: { name: string; rank: number; id: string };
+  name: string;
+  rank: number;
+  id: string;
 }
 
-const Position = ({ position: p }: PositionProps) => {
+const Position = (p: PositionProps) => {
   return (
     <div class="border-solid border-2">
       <Team name={p.name} rank={p.rank} id={p.id}></Team>

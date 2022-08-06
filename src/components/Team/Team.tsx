@@ -43,7 +43,7 @@ const Team = (props: TeamProps) => {
       classList={{ "opacity-25": sortable.isActiveDraggable }}
       use:sortable
     >
-      {props.rank}.{props.name}
+      {props.rank}. {props.name}
     </div>
   );
 };
