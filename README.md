@@ -1,6 +1,6 @@
 # halbton-solid
 
-This is an attempt to implement the soccer-app in [solidjs](https://solidjs.om).
+This is an attempt to implement the soccer-app in [solidjs](https://www.solidjs.com/).
 
 You can find the current main branch deployed [here](https://soccer-solid.netlify.app/)
 
