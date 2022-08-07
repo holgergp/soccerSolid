@@ -1,3 +1,12 @@
+# halbton-solid
+
+This is an attempt to implement the soccer-app in [solidjs](https://solidjs.om).
+
+You can find the current main branch deployed [here](https://soccer-solid.netlify.app/)
+
+This is based on the solidjs app template which docs you can find below:
+
+
 ## Usage
 
 Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
