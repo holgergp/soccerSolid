@@ -1,5 +1,5 @@
-import { createSignal, For } from "solid-js";
-import { SAMPLE_LEAGUE_TABLE } from "./SampleData";
+import { createResource, For } from "solid-js";
+import { getSampleData } from "../../api/leagueTableApi";
 import Position from "../Position/Position";
 import {
   closestCenter,
@@ -11,14 +11,26 @@ import {
 import { recalculateSwappedPositions, TeamType } from "./Positions";
 
 const LeagueTable = () => {
-  const [positions, setPositions] =
-    createSignal<TeamType[]>(SAMPLE_LEAGUE_TABLE);
-  const ids = () => positions().map((p) => p.id);
+  const [positions, { mutate }] = createResource<TeamType[]>(getSampleData);
+
+  const ids = () => {
+    const currentPositions = positions();
+    if (currentPositions) {
+      return currentPositions.map((p) => p.id);
+    }
+    return [];
+  };
 
   const swapPositions = (sourceTeamId: string, targetTeamId: string) => {
-    setPositions(
-      recalculateSwappedPositions(sourceTeamId, targetTeamId, positions())
-    );
+    const currentPositions = positions();
+    if (currentPositions)
+      mutate(
+        recalculateSwappedPositions(
+          sourceTeamId,
+          targetTeamId,
+          currentPositions
+        )
+      );
   };
 
   const onDragEnd: DragEventHandler = (item) => {
@@ -26,21 +38,31 @@ const LeagueTable = () => {
   };
 
   return (
-    <div class="grid gap-y-1 place-items-center">
-      <DragDropProvider onDragEnd={onDragEnd} collisionDetector={closestCenter}>
-        <DragDropSensors />
-        <SortableProvider ids={ids()}>
-          <For each={positions()} fallback={<div>Loading...</div>}>
-            {(item, index) => {
-              const indexToRank = () => index() + 1;
-              console.log(indexToRank());
-              return (
-                <Position id={item.id} name={item.name} rank={indexToRank()} />
-              );
-            }}
-          </For>
-        </SortableProvider>
-      </DragDropProvider>
+    <div>
+      <span>{positions.loading && "Loading..."}</span>
+      <div class="grid gap-y-1 place-items-center">
+        <DragDropProvider
+          onDragEnd={onDragEnd}
+          collisionDetector={closestCenter}
+        >
+          <DragDropSensors />
+          <SortableProvider ids={ids()}>
+            <For each={positions()} fallback={<div>Please wait...</div>}>
+              {(item, index) => {
+                const indexToRank = () => index() + 1;
+                console.log(indexToRank());
+                return (
+                  <Position
+                    id={item.id}
+                    name={item.name}
+                    rank={indexToRank()}
+                  />
+                );
+              }}
+            </For>
+          </SortableProvider>
+        </DragDropProvider>
+      </div>
     </div>
   );
 };
