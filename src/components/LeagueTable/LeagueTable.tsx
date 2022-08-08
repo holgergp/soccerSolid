@@ -20,6 +20,7 @@ const LeagueTable = () => {
       recalculateSwappedPositions(sourceTeamId, targetTeamId, positions())
     );
   };
+
   const onDragEnd: DragEventHandler = (item) => {
     swapPositions(item.draggable.id + "", item.droppable?.id + "");
   };
@@ -30,9 +31,13 @@ const LeagueTable = () => {
         <DragDropSensors />
         <SortableProvider ids={ids()}>
           <For each={positions()} fallback={<div>Loading...</div>}>
-            {(item, index) => (
-              <Position id={item.id} name={item.name} rank={index() + 1} />
-            )}
+            {(item, index) => {
+              const indexToRank = () => index() + 1;
+              console.log(indexToRank());
+              return (
+                <Position id={item.id} name={item.name} rank={indexToRank()} />
+              );
+            }}
           </For>
         </SortableProvider>
       </DragDropProvider>

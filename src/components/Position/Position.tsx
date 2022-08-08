@@ -1,4 +1,5 @@
 import Team from "../Team/Team";
+import { createMemo } from "solid-js";
 
 export interface PositionProps {
   name: string;
@@ -25,12 +26,13 @@ const positionCSSClass = (positionNumber: number) => {
   }
 };
 const Position = (p: PositionProps) => {
-  const tabellenClass = positionCSSClass(p.rank);
+  const tabellenClass = createMemo(() => positionCSSClass(p.rank));
+
   return (
     <div
       class={
         "border-solid border-2 rounded-md border-slate-400 w-1/6 pt-1 pb-1 " +
-        tabellenClass
+        tabellenClass()
       }
     >
       <Team name={p.name} rank={p.rank} id={p.id}></Team>
