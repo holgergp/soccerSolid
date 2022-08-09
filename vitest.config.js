@@ -24,4 +24,7 @@ export default defineConfig({
   resolve: {
     conditions: ["development", "browser"],
   },
+  coverage: {
+    reporter: ["text", "json", "html"],
+  },
 });

@@ -8,6 +8,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "test": "vitest",
+    "test:coverage": "vitest run --coverage",
     "test:cypress": "npx cypress run --record --key cbcbe7b1-b2b6-4efe-ba89-79d2e9c71944 --config-file=cypress.config.ts",
     "test:cypress:open": "npx cypress open --config-file=cypress.config.ts"
   },
