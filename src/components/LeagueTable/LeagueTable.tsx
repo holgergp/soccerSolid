@@ -50,7 +50,6 @@ const LeagueTable = () => {
             <For each={positions()} fallback={<div>Please wait...</div>}>
               {(item, index) => {
                 const indexToRank = () => index() + 1;
-                console.log(indexToRank());
                 return (
                   <Position
                     id={item.id}
