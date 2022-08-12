@@ -14,7 +14,7 @@ const Team = (p: TeamProps) => {
   const [input, setInput] = createSignal(p.name);
   return (
     <div
-      class="font-bold sortable w-full grid grid-cols-[1fr_5fr_1fr] gap-x-0.5 team"
+      class="font-bold sortable grid grid-cols-[1fr_9fr_1fr] gap-x-0.5 team"
       classList={{ "opacity-25": sortable.isActiveDraggable }}
       use:sortable
     >
@@ -33,6 +33,7 @@ const Team = (p: TeamProps) => {
                 }
               }
             }}
+            class="w-5/6"
           />
         </div>
       ) : (
