@@ -40,7 +40,7 @@ const LeagueTable = () => {
   return (
     <div>
       <span>{positions.loading && "Loading..."}</span>
-      <div class="grid gap-y-1 place-items-center">
+      <div class="grid gap-y-1 place-items-center leagueTable">
         <DragDropProvider
           onDragEnd={onDragEnd}
           collisionDetector={closestCenter}

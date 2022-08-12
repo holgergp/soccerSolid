@@ -31,7 +31,7 @@ const Position = (p: PositionProps) => {
   return (
     <div
       class={
-        "border-solid border-2 rounded-md border-slate-400 w-1/6 pt-1 pb-1 " +
+        "border-solid border-2 rounded-md border-slate-400 w-1/6 pt-1 pb-1 position " +
         tabellenClass()
       }
     >
