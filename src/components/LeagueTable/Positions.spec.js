@@ -11,17 +11,14 @@ describe("Positions should", () => {
     sampleLeague = [
       {
         name: "Borussia Mönchengladbach",
-        editing: true,
         id: "BMG",
       },
       {
         name: "Borussia Dortmund",
-        editing: true,
         id: "BVB",
       },
       {
         name: "FC Bayern München",
-        editing: true,
         id: "FCB",
       },
     ];
@@ -30,17 +27,17 @@ describe("Positions should", () => {
     const expectedLeagueState = [
       {
         name: "Borussia Mönchengladbach",
-        editing: true,
+
         id: "BMG",
       },
       {
         name: "FC Bayern München",
-        editing: true,
+
         id: "FCB",
       },
       {
         name: "Borussia Dortmund",
-        editing: true,
+
         id: "BVB",
       },
     ];
@@ -55,11 +52,11 @@ describe("Positions should", () => {
   it("rename a specific team in positions", () => {
     const team = {
       name: "Borussia Dortmund",
-      editing: true,
+
       id: "BVB",
     };
     const leagueWithRenamedLeague = recalculatePositionsWithRenamedTeam(
-      team,
+      team.id,
       "Schalke 04",
       sampleLeague
     );
@@ -67,17 +64,17 @@ describe("Positions should", () => {
     const expectedLeagueState = [
       {
         name: "Borussia Mönchengladbach",
-        editing: true,
+
         id: "BMG",
       },
       {
         name: "Schalke 04",
-        editing: true,
+
         id: "BVB",
       },
       {
         name: "FC Bayern München",
-        editing: true,
+
         id: "FCB",
       },
     ];

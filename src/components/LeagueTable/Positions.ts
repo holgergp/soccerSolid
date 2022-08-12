@@ -1,7 +1,6 @@
 export interface TeamType {
   name: string;
   id: string;
-  editing: boolean;
 }
 
 const findTeamIndex = (teamId: string, positions: TeamType[]) =>
@@ -39,7 +38,6 @@ export const recalculatePositionsWithRenamedTeam = (
   const updatedItems = currentPositions.slice();
   updatedItems.splice(teamIndex, 1, {
     name: updatedText,
-    editing: false,
     id: teamId,
   });
   return updatedItems;

@@ -6,6 +6,6 @@ export interface TeamServerType {
 }
 
 export const getSampleData = (): Promise<TeamType[]> =>
-  fetch("https://holgergp.builtwithdark.com/league-table")
-    .then((res) => res.json())
-    .then((res) => res.map((t: TeamServerType) => ({ ...t, editing: true })));
+  fetch("https://holgergp.builtwithdark.com/league-table").then((res) =>
+    res.json()
+  );
