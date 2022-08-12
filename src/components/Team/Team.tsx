@@ -26,11 +26,10 @@ const Team = (p: TeamProps) => {
             value={input()}
             onKeyDown={(event) => {
               if (event && event.target && event.target.value) {
+                setInput(event.target.value);
                 if (event.key === "Enter") {
                   setEditMode(false);
                   p.updateTeamname(p.id, input());
-                } else {
-                  setInput(event.target.value);
                 }
               }
             }}
@@ -39,7 +38,7 @@ const Team = (p: TeamProps) => {
       ) : (
         <div class="self-center teamname">{p.name}</div>
       )}
-      <div class="self-end editbutton" onClick={() => setEditMode(true)}>
+      <div class="self-end editButton" onClick={() => setEditMode(true)}>
         <div class="opacity-0 text-gray-600 hover:opacity-100">
           <svg
             xmlns="http://www.w3.org/2000/svg"

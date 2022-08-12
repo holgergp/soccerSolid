@@ -3,13 +3,20 @@ describe("Webapp visible", () => {
     cy.visit("/");
     cy.get(".leagueTable");
   });
-  it.skip("Change Teamname", () => {
-    const firstTeamSelector = ":nth-child(1)  > .teamname > .textPointer";
+  it("Change Teamname", () => {
+    const firstTeamNameSelector = ":nth-child(1)  > .team > .teamname";
+    const firstTeamEditbutton = ":nth-child(1)   > .team > .editButton";
+    const firstTeamInput = ":nth-child(1)  > .team input";
     const newTeamName = "Der beste Verein";
+
     return cy
-      .get(firstTeamSelector)
+      .get(firstTeamEditbutton)
+      .click()
+      .get(firstTeamInput)
       .clear()
       .type(newTeamName)
+      .type("{enter}")
+      .get(firstTeamNameSelector)
       .and("contain", newTeamName);
   });
   it("Move Team around", () => {
