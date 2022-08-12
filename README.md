@@ -1,4 +1,8 @@
 # halbton-solid
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/holgergp/soccerSolid)
+![Node.js CI](https://github.com/holgergp/soccerSolid/workflows/Node.js%20CI/badge.svg)
+[![soccer-solid](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/bsbvqw/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/bsbvqw/runs)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d77f6260-ad18-4cc9-bdc6-8de5841121cd/deploy-status)](https://app.netlify.com/sites/soccer-solid/deploys)
 
 This is an attempt to implement the soccer-app in [solidjs](https://www.solidjs.com/).
 
@@ -6,6 +10,7 @@ You can find the current main branch deployed [here](https://soccer-solid.netlif
 
 This is based on the solidjs app template which docs you can find below:
 
+The backend for this repo was done using [Darklang](https://darklang.com/). For now it consists of [this](https://holgergp.builtwithdark.com/league-table) api call.
 
 ## Usage
 
