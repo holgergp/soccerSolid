@@ -1,0 +1,147 @@
+DB::deleteAllv1 LeagueTable
+
+DB::setv1
+ {
+    name: "FC Bayern München",
+    id: "FCB"
+  }
+"fcb"
+LeagueTable
+
+DB::setv1
+ {
+    name: "RB Leipzig",
+    id: "RED"
+  }
+"red"
+LeagueTable
+
+DB::setv1
+ {
+    name: "VFB Stuttgart",
+    id: "VFB",
+  }
+"vfb"
+LeagueTable
+
+DB::setv1
+{
+    name: "Mainz 05",
+    id: "M05",
+  }
+"m05"
+LeagueTable
+
+DB::setv1
+{
+    name: "FC Augsburg",
+    id: "FCA",
+  }
+"fca"
+LeagueTable
+
+DB::setv1
+{
+    name: "Hoffenheim",
+    id: "SAP",
+  }
+"sap"
+LeagueTable
+
+DB::setv1
+ {
+    name: "Werder Bremen",
+    id: "SVW",
+  }
+"svw"
+LeagueTable
+
+DB::setv1
+{
+    name: "Eintracht Frankfurt",
+    id: "SGE",
+}
+"sge"
+LeagueTable
+
+
+DB::setv1
+{
+    name: "SC Freiburg",
+    id: "SCF",
+  }
+"scf"
+LeagueTable
+
+DB::setv1
+{
+    name: "Union Berlin",
+    id: "EIU",
+  }
+"eiu"
+LeagueTable
+
+DB::setv1
+{
+    name: "VFL Bochum",
+    id: "BOC",
+  }
+"boc"
+LeagueTable
+
+DB::setv1
+ {
+    name: "1. FC Köln",
+    id: "1FC",
+  }
+"1fc"
+LeagueTable
+
+DB::setv1
+  {
+    name: "Hertha BSC Berlin",
+    id: "BSC",
+  }
+"bsc"
+LeagueTable
+
+DB::setv1
+{
+    name: "FC Schalke 04",
+    id: "S04",
+  }
+"s04"
+LeagueTable
+
+DB::setv1
+{
+    name: "Bayer Leverkusen",
+    id: "B04",
+  }
+"b04"
+LeagueTable
+
+DB::setv1
+{
+    name: "VFL Wolfsburg",
+    id: "VFL",
+  }
+"vfl"
+LeagueTable
+
+DB::setv1
+{
+    name: "Borussia Dortmund",
+    id: "BVB",
+  }
+"bvb"
+LeagueTable
+
+
+DB::setv1
+{
+    name: "Borussia Mönchengladbach",
+    id: "BMG",
+  }
+"bmg"
+LeagueTable
