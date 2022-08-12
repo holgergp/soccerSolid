@@ -5,6 +5,7 @@ export interface PositionProps {
   name: string;
   rank: number;
   id: string;
+  updateTeamname: (teamId: string, updatedText: string) => void;
 }
 const positionCSSClass = (positionNumber: number) => {
   if (positionNumber === 1) {
@@ -35,7 +36,12 @@ const Position = (p: PositionProps) => {
         tabellenClass()
       }
     >
-      <Team name={p.name} rank={p.rank} id={p.id}></Team>
+      <Team
+        name={p.name}
+        rank={p.rank}
+        id={p.id}
+        updateTeamname={p.updateTeamname}
+      ></Team>
     </div>
   );
 };

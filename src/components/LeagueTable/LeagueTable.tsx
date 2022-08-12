@@ -8,7 +8,11 @@ import {
   DragEventHandler,
   SortableProvider,
 } from "@thisbeyond/solid-dnd";
-import { recalculateSwappedPositions, TeamType } from "./Positions";
+import {
+  recalculatePositionsWithRenamedTeam,
+  recalculateSwappedPositions,
+  TeamType,
+} from "./Positions";
 
 const LeagueTable = () => {
   const [positions, { mutate }] = createResource<TeamType[]>(getSampleData);
@@ -28,6 +32,18 @@ const LeagueTable = () => {
         recalculateSwappedPositions(
           sourceTeamId,
           targetTeamId,
+          currentPositions
+        )
+      );
+  };
+
+  const renameTeam = (sourceTeamId: string, updatedText: string) => {
+    const currentPositions = positions();
+    if (currentPositions)
+      mutate(
+        recalculatePositionsWithRenamedTeam(
+          sourceTeamId,
+          updatedText,
           currentPositions
         )
       );
@@ -55,6 +71,7 @@ const LeagueTable = () => {
                     id={item.id}
                     name={item.name}
                     rank={indexToRank()}
+                    updateTeamname={renameTeam}
                   />
                 );
               }}

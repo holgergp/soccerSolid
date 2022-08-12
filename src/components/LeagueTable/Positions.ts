@@ -31,14 +31,16 @@ export const recalculateSwappedPositions = (
 };
 
 export const recalculatePositionsWithRenamedTeam = (
-  team: TeamType,
+  teamId: string,
   updatedText: string,
   currentPositions: TeamType[]
 ) => {
-  const teamIndex = findTeamIndex(team.id, currentPositions);
-
-  return currentPositions.map((pos, index) => ({
-    ...pos,
-    name: teamIndex === index ? updatedText : pos.name,
-  }));
+  const teamIndex = findTeamIndex(teamId, currentPositions);
+  const updatedItems = currentPositions.slice();
+  updatedItems.splice(teamIndex, 1, {
+    name: updatedText,
+    editing: false,
+    id: teamId,
+  });
+  return updatedItems;
 };
