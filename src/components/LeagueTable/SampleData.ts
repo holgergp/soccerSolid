@@ -31,7 +31,7 @@ export const SAMPLE_LEAGUE_TABLE: TeamType[] = [
   },
   {
     name: "VFL Bochum",
-    id: "VFL",
+    id: "BOC",
   },
   {
     name: "Union Berlin",
