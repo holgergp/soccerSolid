@@ -26,6 +26,7 @@
     "vitest": "^0.21.0"
   },
   "dependencies": {
+    "@netlify/functions": "^1.2.0",
     "@thisbeyond/solid-dnd": "^0.6.1",
     "classnames": "^2.3.1",
     "cypress": "^10.4.0",
