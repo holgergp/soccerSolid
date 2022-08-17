@@ -8,7 +8,7 @@ This is an attempt to implement the soccer-app in [solidjs](https://www.solidjs.
 
 You can find the current main branch deployed [here](https://soccer-solid.netlify.app/)
 
-The backend for this repo was done using [Darklang](https://darklang.com/). For now it consists of [this](https://holgergp.builtwithdark.com/league-table) api call.
+The backend for this repo was done using a Netlify function.
 
 This is based on the solidjs app template which docs you can find below:
 
